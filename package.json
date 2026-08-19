@@ -1,0 +1,14 @@
+{
+  "name": "plinth-telegram-receiver",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ai": "7.0.40"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
