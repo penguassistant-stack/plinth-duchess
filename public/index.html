@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#183c35" />
+  <title>Plinth — The living record for Duchess</title>
+  <meta name="description" content="Plinth turns the Duchess renovation conversation into a clear, contextual and current project record." />
+  <meta property="og:title" content="Plinth — Duchess Project Intelligence" />
+  <meta property="og:description" content="The living renovation record built from the conversations already happening." />
+  <meta property="og:url" content="https://plinth-duchess.vercel.app/" />
+  <link rel="stylesheet" href="/product-v5.css" />
+  <link rel="stylesheet" href="/review-v6.css" />
+  <link rel="stylesheet" href="/schedule-v7.css" />
+  <link rel="stylesheet" href="/final-review-v8.css" />
+  <link rel="stylesheet" href="/mece-v9.css" />
+  <link rel="stylesheet" href="/map-cleanup-v10.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="Plinth home"><span>pl.</span><strong>Plinth</strong></a>
+      <div class="project-chip"><span>DR</span><div><strong>Duchess Residences</strong><small>Living project record</small></div></div>
+      <nav aria-label="Plinth views">
+        <button data-view="today" class="active"><span>01</span>Today</button>
+        <button data-view="map"><span>02</span>Project Map</button>
+        <button data-view="record"><span>03</span>Record</button>
+        <button data-view="review"><span>04</span>Mel Review <b id="review-badge">0</b></button>
+      </nav>
+      <div class="connection"><i></i><div><strong>Telegram connected</strong><small>Daily contextual memory</small></div></div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div><p>DUCHESS · PROJECT INTELLIGENCE</p><h1 id="view-title">Today</h1></div>
+        <div class="top-actions"><span id="sync-state"><i></i> Live</span><button id="consolidate" aria-label="Consolidate pending Telegram messages">Consolidate now</button><button id="refresh" aria-label="Refresh project">Refresh</button></div>
+      </header>
+
+      <section class="view active" id="today">
+        <div class="hero">
+          <div><p>WHAT NEEDS ATTENTION</p><h2>The project, understood from the conversation.</h2><span>Plinth connects decisions, commitments and changing context into one current record.</span></div>
+          <div class="session-status"><i></i><div><strong>Daily consolidation · 11:00 PM SGT</strong><small>Today’s conversation is interpreted together once.</small></div></div>
+        </div>
+        <section class="stat-grid" id="stats"></section>
+        <div class="today-grid">
+          <section class="surface"><div class="section-head"><div><p>PRIORITY</p><h3>Needs attention</h3></div><button data-jump="record">View all</button></div><div id="attention-list" class="record-list"></div></section>
+          <section class="surface"><div class="section-head"><div><p>DAILY TELEGRAM RECORD</p><h3>Consolidated progress</h3></div><span>Updated nightly</span></div><div id="latest-sessions" class="session-stack"></div></section>
+        </div>
+        <section class="surface"><div class="section-head"><div><p>PEOPLE & MEMORY</p><h3>Who Plinth understands</h3></div><span>Project foundation</span></div><div class="people-grid"><article><i>M</i><div><strong>Mel</strong><span>Primary homeowner · Plinth administrator</span></div></article><article><i>M</i><div><strong>Mom</strong><span>Co-homeowner · preferences and decisions</span></div></article><article><i>XH</i><div><strong>Xin Hao</strong><span>Interior designer · design and site coordination</span></div></article></div></section>
+      </section>
+
+      <section class="view" id="map">
+        <div class="page-lead"><div><p>CURRENT PROJECT STATE</p><h2>One map, connected dimensions.</h2><span>Workstreams show what, rooms show where, and the programme shows when.</span></div><div class="segmented"><button class="active" data-map="workstreams">Workstreams</button><button data-map="rooms">Rooms</button><button data-map="schedule">Schedule</button><button data-map="deliveries">Deliveries</button></div></div>
+        <div id="map-content"></div>
+      </section>
+
+      <section class="view" id="record">
+        <div class="page-lead"><div><p>CANONICAL PROJECT RECORD</p><h2>What is currently true.</h2><span>Each fact appears once. Completed and superseded information remains traceable.</span></div><div class="record-search"><input id="record-search" type="search" placeholder="Search decisions, actions, rooms…" /></div></div>
+        <div class="filter-row" id="record-filters"><button class="active" data-filter="current">Current</button><button data-filter="action">Actions</button><button data-filter="decision">Decisions</button><button data-filter="issue">Blockers</button><button data-filter="question">Questions</button><button data-filter="closed">Closed</button></div>
+        <section class="record-register" id="record-register"></section>
+      </section>
+
+      <section class="view" id="review">
+        <div class="page-lead review-lead"><div><p>PRIVATE OWNER WORKSPACE</p><h2>Mel Review</h2><span>Plinth places uncertain interpretations here instead of interrupting the project group or guessing.</span></div><div class="privacy-note"><i>◎</i><span><strong>Owner review</strong><small>Owner PIN required for changes.</small></span></div></div>
+        <section class="review-explainer"><article><span>01</span><div><strong>Plinth proposes</strong><small>The likely meaning and intended record change.</small></div></article><article><span>02</span><div><strong>Mel confirms</strong><small>Approve, correct or dismiss the interpretation.</small></div></article><article><span>03</span><div><strong>The project updates</strong><small>Only the canonical record feeds every project view.</small></div></article></section>
+        <section class="review-toolbar"><div><strong id="review-count">0 items</strong><span>Review the newest interpretations first</span></div><div class="segmented" id="review-filters"><button class="active" data-review-filter="all">All</button><button data-review-filter="decision">Decisions</button><button data-review-filter="action">Actions</button><button data-review-filter="question">Questions</button><button data-review-filter="issue">Blockers</button></div></section>
+        <div id="review-list" class="review-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="detail-dialog"><button class="dialog-close" aria-label="Close">×</button><div id="detail-content"></div></dialog>
+  <script type="module" src="/app-v5.js"></script>
+</body>
+</html>
